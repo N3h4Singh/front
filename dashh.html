@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        
+        .body-style {
+            background-color: rgb(211, 107, 68);
+        }
+        .container {
+            margin-top: 50px;
+            height: 540px;
+            width: 1050px;
+
+            background-color: aliceblue;
+            border-radius: 10px 10px 10px 10px;
+        }
+
+        .col-2 {
+            width: 350px;
+            height: 540px;
+            border-radius: 10px 0px 0px 10px;
+            border-top: none;
+            border-left: none;
+            border-bottom: none;
+            padding-left: 50px;
+        }
+        .box-two{
+
+        }
+
+        
+    </style>
+</head>
+
+<body class="body-style">
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <h5>Coding wala</h5>
+                <br><br>
+                <b><i>Dashboard</i></b>
+                <br><br>
+                <b><i>Home</i></b>
+                <br><br>
+                <b><i>Content</i></b>
+                <br><br>
+                <b><i>Analytics</i></b>
+                <br><br>
+                <b><i>Contacts</i></b>
+                <br><br>
+            </div>
+            <div class="col box-two">
+            </div>
+            <div class="col box-two">
+                <input type="text" placeholder="Search here">
+                <h3><b>Dashboard</b></h3><br>
+                <div class="row cards">
+                    <div class="col box-two-likes">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-hand-thumbs-up-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z" />
+                        </svg>
+                        <h3 class="Like">Likes<br>50,218</h3>
+
+                        <h3>
+                            <datagrid>Comments</datagrid>
+                        </h3>
+                        <div class="row cards"></div>
+                        <div class="col box-two-comments"></div>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chat-square" viewBox="0 0 16 16">
+                            <path
+                                d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
+                        </svg>
+                        <h3 class="Comments">Comments<br>40,554</h3>
+                        <div class="col box-two-share">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white"
+                                class="bi bi-share-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5" />
+                            </svg>
+                            <h3 class="Like">Shares<br>78,920</h3>
+                        </div>
+                    </div>
+                </div>
+                <h2><b><i>Recent Activity</i></b></h2>
+                <div class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Joined</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Status</th>
+</tr>
+                    <tbody>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>Himanshi Sharma </td>
+                            <td>himanshi.sharma@gmail.com</td>
+                            <td>23/</td>
+                            <th scope="row"></th>
+                            <td>Neha Singh</td>
+                            <td></td>
+                            <td></td>
+                            <th scope="row">Chiraj Raul</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <th scope="row">Mrudul Jadhav</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                    </thead>
+
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

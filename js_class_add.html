@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+input{
+    height: 40px;
+    font-size: 30px;
+}
+
+.valid{
+    border: 3px solid rgb(16, 191, 106);
+}
+.invalid{
+    border: 3px solid rgb(190, 10, 40);
+}
+    </style>
+</head>
+<body>
+    <input type="text" id="name" placeholder="Enter your name" onchange="setName()">
+
+    <script>
+function setName(){
+    var name = document.getElementById("name").
+    value;
+    console.log(name)
+    if(name != ""){
+        document.getElementById("name").classList.remove("invalid")
+        document.getElementById("name").classList.add("valid")
+    }else{
+        document.getElementById("name").classList.remove("valid")
+        document.getElementById("name").classList.add("invalid")
+    }
+}
+    </script>
+</body>
+</html>

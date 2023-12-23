@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Event listener</p>
+Enter your name<input type="text" id="fname">
+
+<script>
+    function setData(){
+var data = document.getElementById("fname").value;
+data = data.toUpperCase();
+document.getElementById("fname").value = data;
+    }
+
+document.getElementById("fname").addEventListener
+("change",setData)
+</script>
+
+</body>
+</html>

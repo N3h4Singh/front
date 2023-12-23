@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- bs css cdn -->
+
+    <!-- custom css -->
+
+
+
+</head>
+<body>
+<h1>Js Events</h1>
+<h1>Welcome </h1> <h1 id= "name"> </h1>
+
+
+
+     <!-- bs css cdn -->
+
+    <!-- custom css -->
+
+    <p>Select any name from list....</p>
+    <select name="" id="studentsName" onchange="getStudentName()">
+<option value>Please select option</option>
+<option value="Pratyush">Pratyush</option>
+<option value="Neha">Neha</option>
+<option value = "Aditya">Aditya</option>
+<option value="Babita">Babita</option>
+<option value = "Himanshi">Himanshi</option>
+<option value="Shriya">Shriya</option>
+    </select>
+
+    <p>When you will select a name it will appear down</p>
+
+    <h3 id="StudName" >You selected a user</h3>
+    <script>
+
+        function getStudentName(){
+            var StudName =document.getElementById
+            ("studentsName").value;
+            document.getElementById("StudName").innerHTML= " You Selected  " +  StudName;
+        }
+       
+//         name="Neha Singh"; 
+// islogedin = false;
+// if(islogedin === "true"){
+//     // name="Neha Singh";
+//     document.getElementById("name").innerHTML=name;
+// }else{
+//     document.getElementById("name").innerHTML=name;
+// }
+        // document.getElementById("name").innerHTML=name;
+
+        // name="Test";
+
+        // name="Hehehehhe";
+
+        // console.log(name);
+        // data type
+        // 1. String
+        // 2. Number
+        // 3. Bigint
+        // 4. Boolean
+        // 5. Null
+        // 6. Undefined
+        // 7. Symbol
+        // 8. Subject
+
+        // String,
+        // Number
+        // Boolean
+        // Object
+
+        // Object
+        // Array
+        // Date
+
+
+// const data={
+//     firstname:"Neha",
+//     lastname:"Singh",
+//     age:"19",
+//     edu:["Btech"] 
+// };
+
+// console.log("my name is "+ data.firstname+" "+data.
+// lastname+" "+"my education is " + data.edu[0])
+
+
+// var ans= studentinfo("Neha","Singh");
+// console.log (ans);
+
+// function studentinfo(name,lname){
+//     return "hey student "+name+" "+lname;
+// }
+
+// document.getElementById("name").innerHTML=ans;
+
+// var ans = "neha"+7+7;
+// console.log(ans);
+
+// var ans = 7+7+"neha"; 
+// console.log(ans);
+
+
+    </script>
+
+
+
+
+</body>
+</html>
+<!-- Events
+onChange
+onClick
+onMouseover
+onMouseout
+onKeydown
+onKeyload -->

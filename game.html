@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <style>
+        :root{
+            --color:#c43160;
+            --color-set:#8831ad;
+            --color-first : #3a1eb3;
+            --l:10px;
+        }
+        .cell{
+            width: 140px;
+            height: 140px;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+        }
+        .cell:nth-child(1),.cell:nth-child(2),.cell:nth-child(3){
+            border-top: none;
+        }
+        .cell:nth-child(3),.cell:nth-child(6),.cell:nth-child(9){
+            border-right: none;
+        }
+        .cell:nth-child(7),.cell:nth-child(8),.cell:nth-child(9){
+            border-bottom: none;
+        }
+        .cell:nth-child(1),.cell:nth-child(4),.cell:nth-child(7){
+            border-left: none;
+        }
+        .main_section{
+            display: grid;
+            grid-template-columns: repeat(3,auto);
+            width: 426px;
+            /* border: 1px solid red; */
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+        }
+        .main_section.x .cell:not(.circle):not(.x):hover{
+            background: linear-gradient(to top right, transparent calc(50% - var(--l) / 2), var(--color-first) calc(50% - var(--l) / 2) calc(50% + var(--l) / 2), transparent calc(50% + var(--l) / 2)),
+				linear-gradient(to bottom right, transparent calc(50% - var(--l) / 2), var(--color-first) calc(50% - var(--l) / 2) calc(50% + var(--l) / 2), transparent calc(50% + var(--l) / 2));
+            background-size: 70% 70%;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .cell:not(.circle).x{
+            background: linear-gradient(to top right, transparent calc(50% - var(--l) / 2), var(--color-set) calc(50% - var(--l) / 2) calc(50% + var(--l) / 2), transparent calc(50% + var(--l) / 2)),
+				linear-gradient(to bottom right, transparent calc(50% - var(--l) / 2), var(--color-set) calc(50% - var(--l) / 2) calc(50% + var(--l) / 2), transparent calc(50% + var(--l) / 2));
+            background-size: 70% 70%;
+            background-repeat: no-repeat;
+            background-position: center;  
+        }
+        .cell.x , .cell.circle{
+            cursor: not-allowed;
+        }
+        .main_section .cell:not(.circle):not(.x):hover{
+            background: radial-gradient(var(--color) 60%, transparent 60%);
+        }
+        .cell:not(.x).circle{
+            background: radial-gradient(var(--color-set) 60%, transparent 60%);
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <h1 class="text-center">TIC TAC TOE</h1>
+
+        <div class="main_section" id="main_section">
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+        </div>
+        <div class="message" id="message">
+            <div class="message_text" id="message_text"></div>
+            <button id="reset" class="btn btn-outline-primary" onclick="startGame()">RESET</button>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const PLAYER_X = 'x';
+        const PLAYER_O = 'circle';
+        const WINNING_COMBINATIONS = [
+            [0,1,2],
+            [3,4,5],
+            [6,7,8],
+            [0,3,6],
+            [1,4,7],
+            [2,5,8],
+            [0,4,8],
+            [2,4,6],
+        ];
+        const cellElements = document.querySelectorAll('[data-cell]');
+        console.log(cellElements);
+        const mainSection = document.getElementById('main_section');
+        const messageElement = document.getElementById('message');
+        const messageTextElement = document.getElementById('message_text');
+        const resetButton = document.getElementById('reset');
+        let isPlayer_O_active = false;
+
+        startGame();
+
+        function startGame(){
+            isPlayer_O_active = false;
+            cellElements.forEach(cell => {
+                cell.classList.remove(PLAYER_X);
+                cell.classList.remove(PLAYER_O);
+                cell.removeEventListener('click',handleCellClick);
+                cell.addEventListener('click',handleCellClick,{once:true});
+            });
+            setMainsection();
+        }
+
+        function handleCellClick(e){
+            const cell = e.target;
+            const currentPlayer = isPlayer_O_active ? PLAYER_O : PLAYER_X;
+            placeMark(cell,currentPlayer);
+            if(checkWin(currentPlayer)){
+                endGame(false)
+            }else if (isTie()){
+                endGame(true)
+            }else{
+                swapTurn();
+                setMainsection();
+            }
+            console.log(cellElements)
+        }
+        function placeMark(cell,currentPlayer){
+            cell.classList.add(currentPlayer)
+        }
+        function endGame(tie){
+            if(tie){
+                messageTextElement.innerHTML = "It's a tie";
+            }else{
+                messageTextElement.innerHTML = `Player with ${isPlayer_O_active ? "O" : "X"} is won...!`;
+            }
+        }
+        function swapTurn(){
+            isPlayer_O_active = !isPlayer_O_active;
+        }
+        function setMainsection(){
+            mainSection.classList.remove(PLAYER_X)
+            mainSection.classList.remove(PLAYER_O)
+            if(isPlayer_O_active){
+                mainSection.classList.add(PLAYER_O)
+            }else{
+                mainSection.classList.add(PLAYER_X)
+            }
+        }
+        function checkWin(currentPlayer){
+            return WINNING_COMBINATIONS.some(combination =>{
+                return combination.every(index => {
+                    return cellElements[index].classList.contains(currentPlayer)
+                })
+            })
+        }
+        function isTie(){
+            return [...cellElements].every(cell =>{
+                return cell.classList.contains(PLAYER_X) || cell.classList.contains(PLAYER_O)
+            })
+        }
+    </script>
+  </body>
+</html>
